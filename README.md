@@ -1,6 +1,6 @@
 # Programa classificador de Triângulo
 
-Escreva uma API REST que lê três valores da query param. Os três valores representam os tamanhos dos lados de um triângulo. O programa deve classificar o triângulo em: EQUILÁTERO, ISÓSCELES, ESCALENO, INVÁLIDO. Triângulo escaleno é aquele em que nenhum dos lados é igual a outro. Triângulo isósceles é aquele em que dois dos seus lados são iguais. Triângulo equilátero tem todos os lados iguais.
+Escreva uma API REST que lê três valores (números inteiros) da query param. Os três valores representam os tamanhos dos lados de um triângulo. O programa deve classificar o triângulo em: EQUILÁTERO, ISÓSCELES, ESCALENO, INVÁLIDO. Triângulo escaleno é aquele em que nenhum dos lados é igual a outro. Triângulo isósceles é aquele em que dois dos seus lados são iguais. Triângulo equilátero tem todos os lados iguais.
 
 OBS: Para que um triângulo seja válido, os tamanhos dos seus lados devem obedecer as seguintes inequações. Sendo a, b e c os tamanhos, temos:
 * a + b > c
