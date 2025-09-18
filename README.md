@@ -19,4 +19,5 @@ OBS: Para que um triângulo seja válido, os tamanhos dos seus lados devem obede
 
 1. A documentação da API (Swagger) pode ser consultada em: http://localhost:8080/swagger-ui/index.html
 2. NÃO altere a assinatura do método `ClassificacaoTrianguloRestController#getClassificacaoTriangulo`;
-3. NÃO publique sua solução no GitHub ou qualquer outro repositório público. 
+3. NÃO publique sua solução no GitHub ou qualquer outro repositório público.
+4. Atividade individual, artefatos enviados iguais terão as notas divididas.
