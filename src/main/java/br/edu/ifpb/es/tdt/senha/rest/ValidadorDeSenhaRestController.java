@@ -16,11 +16,51 @@ public class ValidadorDeSenhaRestController implements ValidadorDeSenhaRestContr
 
     @PostMapping("/validar")
     public ResponseEntity<ErrosDTO> ehSenhaVálida(@RequestBody SenhaDTO dto) {
-//        return ResponseEntity.noContent().build();
+
+        String senha = dto.valor();
         List<Regras> erros = new ArrayList<>();
-        erros.add(Regras.MIN_8_CARACTERES);
-        ErrosDTO errosDTO = new ErrosDTO(erros.stream().map(Regras::getDescricao).toList().toArray(new String[0]));
-        return new ResponseEntity<ErrosDTO>(errosDTO, HttpStatus.BAD_REQUEST);
+
+        // Escreva uma API REST que lê uma string e verificar se é uma senha válida. Para ser uma senha válida as seguintes regras (todas) devem ser atendidas:
+        // 1. Pelo menos 8 caracteres;
+        // 2. Contém letra maiúscula;
+        // 3. Contém número;
+        // 4. Contém caractere especial.
+
+        //Verifica se é válida
+
+        if (senha == null || senha.isEmpty()) {
+            erros.add(Regras.MIN_8_CARACTERES);
+            erros.add(Regras.MIN_1_LETRA_MAIÚSCULA);
+            erros.add(Regras.MIN_1_DIGITO);
+            erros.add(Regras.MIN_1_CARACTERE_ESPECIAL);
+            
+        } else {
+            
+            if (senha.length() < 8) {
+                erros.add(Regras.MIN_8_CARACTERES);
+            }
+
+            if (!senha.matches(".*[A-Z].*")) {
+                erros.add(Regras.MIN_1_LETRA_MAIÚSCULA);
+            }
+
+            if (!senha.matches(".*\\d.*")) {
+                erros.add(Regras.MIN_1_DIGITO);
+            }
+
+            if (!senha.matches(".*[^a-zA-Z0-9].*")) {
+                erros.add(Regras.MIN_1_CARACTERE_ESPECIAL);
+            }
+        }
+
+        if (erros.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            ErrosDTO errosDTO = new ErrosDTO(erros.stream().map(Regras::getDescricao).toList().toArray(new String[0]));
+            return new ResponseEntity<ErrosDTO>(errosDTO, HttpStatus.BAD_REQUEST);
+        }
+        
+        
     }
 
 }
